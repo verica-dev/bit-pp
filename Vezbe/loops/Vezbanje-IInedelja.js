@@ -41,26 +41,41 @@ console.log(resu);*/
 var resu = "";
 var res = '';
 
-for (var i = 0; i < 5; i++) {
+function square (d,f){
+for (var i = 0; i < d; i++) {
     resu += "*";
 }
 console.log(resu);
-for (var j = 0; j < 3; j++) {
+
+for (var j = 0; j < f; j++) {
     res = '*\t' + "*";/*moze i da bude nov red: */
     console.log(res);
 }
 
 console.log(resu);
+}
 
-var r = "";
-for (var i = 0; i < 5; i++) {
-    r += "*";
-} console.log(r);
-var f = "";var m=0;
-for (var m = 0; m < 3; m++) {
-    f += "*";
-}console.log(f);
-var ly = "";var xy=0;
-for (var xy = 0; xy < 7; xy++) {
-    ly += "*";
-}console.log(ly);
+square(5,3);
+
+
+function chart(a, b, c) {
+    var r = "";
+    for (var i = 0; i < a; i++) {
+        r += "*";
+    }
+    console.log(r);
+
+    var f = ""; var m = 0;
+    for (var m = 0; m < b; m++) {
+        f += "*";
+    }
+    console.log(f);
+
+    var ly = ""; var xy = 0;
+    for (var xy = 0; xy < c; xy++) {
+        ly += "*";
+    }
+    console.log(ly);
+    
+}
+chart(7,1,8);
