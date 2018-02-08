@@ -42,7 +42,8 @@ matrice_3(matrix);
 
 var matrix_stars= [['* ','* ','* ','* ','* '],['* ',"  ","  ","  ",'* '],['* ',"  ","  ","  ",'* '],['* ',"  ","  ","  ",'* '],['* ','* ','* ','* ','* ']];
 
-console.log("\n");
+console.log("\n")
+
 
 console.log("MATRICE 3 STARS");
 matrice_3(matrix_stars);
