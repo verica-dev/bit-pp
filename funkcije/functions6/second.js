@@ -1,6 +1,6 @@
 "use strict"
-var arr1 = [4, 5, 6, 2];
-var arr2 = [3, 8, 9, 11];
+var arr1 = [1,2,3];
+var arr2 = ["a","b","c"];
 
 var arrOut = [];
 
