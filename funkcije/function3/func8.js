@@ -1,3 +1,5 @@
+"use strict"
+
 function cutSentence(sentence, n, m) { //function which cuts a sentence/string from n to m place//
     var output;
     for (var i = n; i < m; i++) {

@@ -1,4 +1,4 @@
-
+"use strict"
 function insertString(input, string, place) {
     var newstring = "";
 

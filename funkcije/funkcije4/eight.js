@@ -1,3 +1,4 @@
+"use strict"
 var arr1 = [4, 5, 6, 2];
 var arr2 = [3, 8, 9, 11];
 

@@ -1,3 +1,4 @@
+"use strict"
 var e = 78;
 var position = 3;
 var arr = [2, -2, 33, 12, 5, 8];

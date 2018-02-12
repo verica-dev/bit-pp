@@ -1,3 +1,5 @@
+
+"use strict"
 function digits(a) {
     var b = "";
     b = b + a;

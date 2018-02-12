@@ -1,3 +1,5 @@
+"use strict"
+
 function zbir(a){
  var b = "";
  b += a;

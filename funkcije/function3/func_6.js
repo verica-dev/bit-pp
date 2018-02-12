@@ -1,3 +1,5 @@
+"use strict"
+
 function copycat(numCopies, elArr) {
     var newARR = [];
     for (var i = 0; i < numCopies; i++) {

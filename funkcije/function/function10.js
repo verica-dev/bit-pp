@@ -1,3 +1,4 @@
+"use strict"
 function slova(array, l, uL) {
     var brojSlova = "";
     for (var i = 0; i < array.length; i++) {

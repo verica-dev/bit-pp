@@ -1,3 +1,4 @@
+"use strict"
 var sum=0;
 function cal (a,b,c,d){
    var sred = (a+b+c+d)/4;

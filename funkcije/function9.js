@@ -1,7 +1,8 @@
+"use strict"
 var suma = 0;
 
 function odd(p) {
-    for (i = 0; i < p.length; i++) {
+    for (var i = 0; i < p.length; i++) {
         if (p[i]%2 !== 0) {
            suma+=p[i];
         }

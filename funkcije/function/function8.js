@@ -1,4 +1,4 @@
-
+"use strict"
 function provera(array, num) {
     var sum = 0;
     for (var i = 0; i < array.length; i++) {

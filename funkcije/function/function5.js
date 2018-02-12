@@ -1,3 +1,4 @@
+"use strict"
 function squ(a){
     var b = "";
  for(var i = 0; i < a; i++){

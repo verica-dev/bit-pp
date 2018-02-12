@@ -1,3 +1,4 @@
+"use strict"
 //function conv(aRRstring) {
 // numString = [];
 //var aRRstring = ["120", "sky", "blue", "27"];

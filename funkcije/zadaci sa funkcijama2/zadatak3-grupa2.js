@@ -1,5 +1,5 @@
 
-
+"use strict"
 var sum = "";
 function concaten(givenString, num) {
     if (typeof num === "undefined") {

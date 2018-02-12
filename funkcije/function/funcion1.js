@@ -1,3 +1,4 @@
+"use strict"
 function max(a,b){
     var c  = a * b;
 

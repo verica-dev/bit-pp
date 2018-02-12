@@ -1,5 +1,7 @@
+"use strict"
+
 function getty(strB, numOfChar) {
-    newArr = [];
+    var newArr = [];
     for (var i = 0; i < numOfChar; i++) {
         newArr+= strB[i] ;
     }

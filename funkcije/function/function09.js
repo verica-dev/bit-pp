@@ -1,3 +1,4 @@
+"use strict"
 function convert(string,char) {
     var arr = [];
     for (var i = 0; i < string.length; i++) {

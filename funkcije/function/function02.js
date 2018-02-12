@@ -1,3 +1,4 @@
+"use strict"
 function check (a){
 if( a === ""){
     return true;

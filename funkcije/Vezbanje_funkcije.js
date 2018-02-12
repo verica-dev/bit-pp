@@ -1,5 +1,5 @@
 
-
+"use strict"
 function digits(a) {
     var b = "";
     b = b + a;
@@ -13,7 +13,7 @@ var niz = [5, 7, 8, 9, 5, 5, 5, 5];
 var x = 5;
 var sum = 0;
 function numArr(a, b) {
-    for (i = 0; i < niz.length; i++) {
+    for (var i = 0; i < niz.length; i++) {
         if (niz[i] === x) {
             sum += 1;
         }
@@ -69,7 +69,7 @@ chart(7, 1, 8);
 var suma = 0;
 
 function odd(p) {
-    for (i = 0; i < p.length; i++) {
+    for (var i = 0; i < p.length; i++) {
         if (p[i]%2 !== 0) {
            suma+=p[i];
         }

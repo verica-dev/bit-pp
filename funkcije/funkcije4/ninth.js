@@ -1,3 +1,4 @@
+"use strict"
 var arr = [4, 6, 8, 2, 2];
 var del = 2;
 var newArr = [];

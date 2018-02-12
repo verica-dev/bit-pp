@@ -1,3 +1,4 @@
+"use strict"
 var arr = [4, 2, 2, -1, 6];
 
 for (var i = 0; i < arr.length; i++) {

@@ -1,6 +1,6 @@
 //var  arr =[NaN, 0,15,false,-22,undefined,47,null,Infinity];
 
-
+"use strict"
 function filteroutFalsy(arr) {
     var newArr = [];
     for (var i = 0; i < arr.length; i++) {

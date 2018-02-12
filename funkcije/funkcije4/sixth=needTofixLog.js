@@ -1,3 +1,4 @@
+"use strict"
 var arr = [2, 4, -2, 7, -2, 4, 2];
 var n;
 if (arr.length % 2 === 0) {

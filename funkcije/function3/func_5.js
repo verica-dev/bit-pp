@@ -1,3 +1,4 @@
+"use strict"
 function cutArr(arr, n) {
     var newArr = [];
     for (var i = n; i < arr.length; i++) {

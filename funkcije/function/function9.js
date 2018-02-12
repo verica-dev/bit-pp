@@ -1,3 +1,5 @@
+
+"use strict"
 function odd(array) {
     var sum = 0;
     for (var i = 0; i < array.length; i++) {

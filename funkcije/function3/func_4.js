@@ -1,3 +1,4 @@
+"use strict"
 var num = 12345;
 function reverseDigits(num) {
     var lastDigit = num % 10;

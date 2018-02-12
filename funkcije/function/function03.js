@@ -1,3 +1,4 @@
+"use strict"
 function concat (array, num){
     var sum = "";
     for(var i=0; i < num; i++){

@@ -1,3 +1,5 @@
+
+"use strict"
 function cutSentence(a,n,m){
     var output = new Array(m-n);
     for(var i=n; i< m; i++){

@@ -1,3 +1,4 @@
+"use strict"
 function find(word, letter) {
     for (var i = 0; i < word.length; i++) {
         if (word[i] === letter) {

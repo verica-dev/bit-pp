@@ -1,3 +1,4 @@
+"use strict"
 function isNumPerfect(num) {
     var sum = 0;
     for (var x = 1; x < num; x++) {
@@ -15,5 +16,5 @@ function isNumPerfect(num) {
 }
 
 
-var output = (isNumPerfect(6));
+var output = (isNumPerfect(28));
 console.log(output);

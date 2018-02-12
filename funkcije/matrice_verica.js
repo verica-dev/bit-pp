@@ -1,3 +1,5 @@
+"use strict"
+
 function matrice_1(m) {
  
     for (var i = 0; i < m.length; i++) {

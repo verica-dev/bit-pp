@@ -1,3 +1,4 @@
+"use strict"
 var arr = [-3, 11, 5, 3.4, -8];
 var outputArr=[] ;
 for (var i = 0; i < arr.length; i++) {

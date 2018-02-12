@@ -1,3 +1,4 @@
+"use strict"
 function provera (word, letter){
  var sum = "";
 

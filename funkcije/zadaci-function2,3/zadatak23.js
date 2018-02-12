@@ -1,3 +1,4 @@
+"use strict"
 function yearsTillRetirement(curYear, yearOfbirth, gender) {
     var c = curYear - yearOfbirth;
     var yearstillret;

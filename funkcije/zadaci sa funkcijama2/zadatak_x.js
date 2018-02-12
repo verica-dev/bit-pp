@@ -1,3 +1,4 @@
+"use strict"
 function get(strC, nChar) {
     var newArr=[];
     for (var i =0; i<strC.length; i++) {
