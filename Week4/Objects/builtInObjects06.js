@@ -7,7 +7,6 @@ function stringSplitAndConvertToArray(string) {
     
     string = string.split(" ");
     string[1] = string[1].substring(0, 1) + ".";
-    return string.join(" ");
-}
+return string.join(" ");
 
 console.log(stringSplitAndConvertToArray("John Snow"));
