@@ -8,7 +8,7 @@ function startsWith(arr, word) {
     // arr[i]=/"pro"/i; Kako da radi sa RegExp??? da bi bilo case-insens???
     arr=["JavaScript", "Programming", "fun", "product"];
     for (var i = 0; i < arr.length; i++) {
-        if (arr[i].startsWith(word)) {
+        if (arr[i].startsWith(word)) {/*moze i indexOf */
             newA[i]=arr[i];
         }
     }
