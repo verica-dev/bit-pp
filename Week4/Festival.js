@@ -24,19 +24,31 @@
 
     }
 
-    function Program(date, totalNumMovies) {
+    function Program(date) {
         this.date = new Date(date);
         this.listOfMovies = [];
-        this.totalNumMovies = totalNumMovies;
-
-        // this.getData = function () { 
-        //     totalMovLength = mov1.length + mov2.length;
-        //     return this.date.getDate().getMonth().getYear() + totalMovLength + "min" ;
-        // }
         this.addMovie = function (movie) {
             this.listOfMovies.push (movie);
             return 
         }
+        this.totalNumMovies = function(){
+            return this.listOfMovies.length;
+        };
+        this.getProgramLength=function(){
+            var length=0;
+            for(var i=0;i<this.listOfMovies.length;i++){
+                var movie = this.listOfMovies[i];
+                length=length+movie.length;
+            }
+            return length;
+        }
+
+        this.getData = function () { 
+           var output="";
+
+           var dateNow=this.date.getFullYear();
+        }
+        return output;
     }
 
     function Festival(name, numOfMovies) {
