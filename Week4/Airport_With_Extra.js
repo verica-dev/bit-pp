@@ -1,9 +1,9 @@
 "use strict";
-(function () {
+(function() {
     function Person(name, surname) {
         this.name = name;
         this.surname = surname;
-        this.getData = function () {
+        this.getData = function() {
             return this.name + " " + this.surname;
         }
     };
@@ -21,11 +21,11 @@
 
     function Seat(seatNumber, category) {
         this.seatNumber = seatNumber || parseFloat((((100 - 10) * Math.random()) + 10).toFixed()); //need this to return 2-digit number
-        this.category = function () {
+        this.category = function() {
             var result = (category === "b") ? "b" : "e"; //using ternary operator 
             return result.toUpperCase();
         };
-        this.getData = function () {
+        this.getData = function() {
             return this.seatNumber + ", " + this.category().toUpperCase();
         }
     };
@@ -42,7 +42,7 @@
     function Passenger(Person, Seat) {
         this.passenger = Person;
         this.seat = Seat;
-        this.getData = function () {
+        this.getData = function() {
             return this.seat.getData() + " " + this.passenger.getData();
         }
     };
@@ -58,7 +58,7 @@
     ////////////////////////////////////////////////////////////////////////
 
     function Flight(relation, date) {
-        this.relation = function (relation) {
+        this.relation = function(relation) {
             var relationString = relation;
             relationString.slice();
             // console.log(relationString);
@@ -72,8 +72,8 @@
             var result = "";
             result = element1[0] + element1[element1.length - 1] + "-" + element2[0] + element2[element2.length - 1];
             return result.toUpperCase();
-        };;
-        this.date = function (date) { // using function here, `cause we need our date in certain format.
+        };
+        this.date = function(date) { // using function here, `cause we need our date in certain format.
             var myDate = new Date(date); // Can inner function use params from outter function??? It should be possible.Why Not??
             var currentDay = myDate.getDate();
             var currentMonth = myDate.getMonth();
@@ -84,26 +84,56 @@
         };
 
         this.listOfPassengers = [];
-        this.numOfPassengers = function () { //this function returns a number
+        this.numOfPassengers = function() { //this function returns a number
             return this.listOfPassengers.length;
         };
-        this.addPassenger = function (Passenger) {
-            var passengerData = Passenger.getData(); //this is string;
-            var seatdata = passengerData.slice(0, 1); //first two characters are numbers;
-            // var numOfSeat = parseFloat(seatdata); //this should be a number;
+
+        this.doesPassengerExistOnFlight = function(newPassenger) {
+            this.listOfPassengers.forEach(passenger => {
+                if (passenger.passenger.getData() === newPassenger.passenger.getData()) {
+                    return true;
+                }
+            });
+            return false;
+        }
+
+        // we want to be able to check if seat is taken
+        this.isSeatTaken = function(seat) {
+            this.listOfPassengers.forEach(passenger => {
+                if (passenger.seat.getData() === seat.getData()) {
+                    return true;
+                }
+            });
+            return false;
+        }
+
+        // we want to change the seat of our passenger
+        this.changePassengersSeat = function(passengerWithNewSeat) {
+            this.listOfPassengers.forEach(passenger => {
+                if (passenger.passenger.getData() === passengerWithNewSeat.passenger.getData()) { // try to find passenger with the same person data
+                    passenger.seat = passengerWithNewSeat.seat;
+                    return; // we found our passenger and we can jump out of the function
+                }
+            });
+        }
+
+        this.addPassenger = function(passenger) {
             var maxNumOfPassengers = this.numOfPassengers(); //result of this function is a number
-            var passengersOnFlight = this.listOfPassengers.join();//to see all the passenger data as one string
-            if (maxNumOfPassengers >= 100) {
-                return "We apologize,this flight is full."
-            } else if (passengersOnFlight.indexOf(seatdata) === (-1)) {//to see if seat number already exists
-                this.listOfPassengers.push(Passenger);
-            };
+            if (maxNumOfPassengers >= 100) { // change this to 1 to see how throwing errors work
+                throw new Error(passenger.passenger.getData() + " we apologize,this flight is full."); // your function doesn't need to return anything
+                // it only add passenger; but there is no more seats, that is an exception
+            } else if (!this.isSeatTaken(passenger.seat)) { //to see if seat number already exists
+                this.listOfPassengers.push(passenger);
+            }
+            if (this.doesPassengerExistOnFlight(passenger)) {
+                this.changePassengersSeat(passenger);
+            }
         };
 
 
-        this.getData = function () {
+        this.getData = function() {
             var dataAboutPassengers = "\n\t\t";
-            this.listOfPassengers.forEach(function (Passenger) {
+            this.listOfPassengers.forEach(function(Passenger) {
                 dataAboutPassengers += Passenger.getData() + "; " + "\n" + "\t\t";
             });
 
@@ -113,10 +143,15 @@
     };
 
     var flight1 = new Flight("Kyoto-Edo", "1615-04-29");
-    console.log(flight1.getData());
-
-    flight1.addPassenger(passenger1);
-    flight1.addPassenger(passenger2);
+    console.log("flight 1 is : " + flight1.getData());
+    try {
+        flight1.addPassenger(passenger1);
+        console.log("added " + passenger1.passenger.getData());
+        flight1.addPassenger(passenger2);
+        console.log("added " + passenger2.passenger.getData());
+    } catch (myErr) {
+        console.log(myErr.message);
+    }
     console.log(flight1.numOfPassengers());
     console.log(flight1.listOfPassengers);
 
@@ -135,21 +170,21 @@
     function Airport() {
         this.name = "Haneda Airport";
         this.listOfFlights = [];
-        this.addFlight = function (Flight) {
+        this.addFlight = function(Flight) {
             this.listOfFlights.push(Flight);
         };
 
-        this.getTotalNumOfPassengers = function () {
+        this.getTotalNumOfPassengers = function() {
             var sum = 0;
-            this.listOfFlights.forEach(function (Flight) {
+            this.listOfFlights.forEach(function(Flight) {
                 sum = sum + Flight.numOfPassengers();
             });
             return sum;
         }
 
-        this.getData = function () {
+        this.getData = function() {
             var flightList = "";
-            this.listOfFlights.forEach(function (Flight) {
+            this.listOfFlights.forEach(function(Flight) {
                 flightList = flightList + "\n" + "\t" + Flight.getData();
             });
             return this.name + " total passengers : " + this.getTotalNumOfPassengers() + "\t" + flightList;
@@ -187,11 +222,5 @@
     airport1.addFlight(flight3);
 
     console.log(airport1.getData());
-
-
-
-
-
-
 
 })();
