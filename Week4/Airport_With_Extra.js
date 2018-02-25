@@ -43,8 +43,17 @@
         this.passenger = Person;
         this.seat = Seat;
         this.getData = function() {
-            return this.seat.getData() + " " + this.passenger.getData();
-        }
+            var category;
+
+            if (this.seat.category() === 'B') {
+                category = "business";
+            } else if (this.seat.category() === 'E') {
+                category = "economy";
+            }
+
+            return category + " " + this.passenger.getData();
+        };
+
     };
     var passenger1 = new Passenger(person1, seat1);
     console.log(passenger1.getData());
@@ -130,6 +139,19 @@
             }
         };
 
+        // we could define only method which is checking only business category
+        // however we want our code to be reusable ;)
+        this.getNumOfPassengersInCategory = function(category) {
+            category = category.toUpperCase();
+            var numOfPassengers = 0;
+            this.listOfPassengers.forEach(passenger => {
+                if (passenger.seat.category() === category) {
+                    numOfPassengers++;
+                }
+            });
+            return numOfPassengers;
+        };
+
 
         this.getData = function() {
             var dataAboutPassengers = "\n\t\t";
@@ -138,6 +160,7 @@
             });
 
             return this.date(date) + ", " + this.relation(relation) +
+                ", business passengers: " + this.getNumOfPassengersInCategory("B") +
                 "\t" + dataAboutPassengers;
         };
     };
@@ -182,12 +205,22 @@
             return sum;
         }
 
+        this.getNumOfPassengersInCategory = function(category) {
+            var numOfPassengers = 0;
+            this.listOfFlights.forEach(flight => {
+                numOfPassengers += flight.getNumOfPassengersInCategory(category);
+            });
+            return numOfPassengers;
+        }
+
         this.getData = function() {
             var flightList = "";
             this.listOfFlights.forEach(function(Flight) {
                 flightList = flightList + "\n" + "\t" + Flight.getData();
             });
-            return this.name + " total passengers : " + this.getTotalNumOfPassengers() + "\t" + flightList;
+            return this.name + " \ntotal passengers : " + this.getTotalNumOfPassengers() +
+                " ,\ntotal business passengers: " + this.getNumOfPassengersInCategory("b") +
+                "\t" + flightList;
         }
 
     };
